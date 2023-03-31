@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ReactGA from "react-ga";
+
+const trackingId = "UA-142109637-3"; // Replace with your Google Analytics tracking ID
+ReactGA.initialize(trackingId);
+// import TagManager from 'react-gtm-module';
+
+// const tagManagerArgs = {
+//   gtmId: 'GTM-TR8XDW4',
+//   // dataLayer: {
+//   // }
+// };
+
+// TagManager.initialize(tagManagerArgs);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,7 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import ReactGA from "react-ga";
+import { useEffect } from 'react';
 
 function App() {
+
+  const userLovesPage = async () => {
+    // console.log(window.dataLayer);
+    // const resp = await window.dataLayer.push({ 'event': 'lovePage' });
+    // console.log(resp);
+
+    ReactGA.event({
+      category: 'User',
+      action: 'Loves page'
+    });
+    console.log('User loves page');
+  };
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +36,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={userLovesPage}>I love this page!</button>
       </header>
     </div>
   );
